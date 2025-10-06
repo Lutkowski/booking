@@ -17,7 +17,7 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
             username: this.configService.get<string>('DB_USER'),
             password: this.configService.get<string>('DB_PASSWORD'),
             database: this.configService.get<string>('DB_NAME'),
-            entities: ['dist/**/*.entity.js'],
+            entities: ['dist/modules/**/*.entity.js'],
             migrations: ['dist/common/migrations/*.js'],
             synchronize: false,
             logging: this.configService.get('NODE_ENV') === 'development',
@@ -32,6 +32,6 @@ export default new DataSource({
     username: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    entities: ['src/**/*.entity.ts'],
+    entities: ['src/modules/**/*.entity.ts'],
     migrations: ['src/common/migrations/*.ts'],
 } as DataSourceOptions);
